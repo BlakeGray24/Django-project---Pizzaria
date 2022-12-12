@@ -29,6 +29,17 @@ def pizza(request,pizza_id):
 
 
 def comment(request,pizza_id):
+    c = Pizza.objects.get(id=pizza_id)
+
+    comments = Comment.objects.filter(pizzacomment=c)
+
+    context = {'pizzacomment':c, 'comments':comments}
+
+    return render(request, 'pizzas/comment.html',context)
+
+
+
+def new_comment(request,pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
     
     if request.method != 'POST':
@@ -43,7 +54,7 @@ def comment(request,pizza_id):
             return redirect('pizzas:pizza', pizza_id=pizza_id)
 
     context = {'form':form, 'pizza': pizza}
-    return render(request, 'pizzas/comment.html', context)
+    return render(request, 'pizzas/new_comment.html', context)
 
 
 

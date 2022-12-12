@@ -15,7 +15,7 @@
     <li>No toppings has been added yet.</li>
     {% endfor %}
 </ul>
-
+<p> Comments: {{ pizza.pizza_name }} </p>
 <ul>
     {% for c in comments %} 
     <li>
@@ -28,7 +28,7 @@
     {% endfor %}
 </ul>
 <p>
-    <a href="{% url 'pizzas:comment' pizza.id %}">Add a new comment</a>
+    <a href="{% url 'pizzas:new_comment' pizza.id %}">Add a new comment</a>
 </p>
 
 {% endblock content %}
