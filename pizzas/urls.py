@@ -1,4 +1,5 @@
 from django.urls import path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from . import views
 
@@ -11,3 +12,5 @@ urlpatterns = [
     path('comment/<int:pizza_id>/',views.comment,name='comment'),
     path('new_comment/<int:pizza_id>/',views.new_comment,name='new_comment'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()

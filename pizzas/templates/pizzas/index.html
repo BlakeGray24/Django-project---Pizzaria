@@ -1,11 +1,18 @@
 {% extends "pizzas/base.html" %}
 
-{% block content %}
+{% block title %}
 
 <p> Pizzeria </p>
 
+{% endblock %}
+
+{% block content %}
+
 <p>This is Blake's Pizzeria website! Come take a look
     at our tasty pies!
+</p>
+<p>
+    {% load static %} <img src="{% static "pizzas/media/homepage.jpg" %}" alt="home" /> 
 </p>
 
 
