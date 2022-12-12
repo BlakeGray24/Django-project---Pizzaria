@@ -6,13 +6,13 @@
 
 <p>Add a new comment:</p>
 
-<form action="{% url 'pizzas:comments' pizza.id %}" method="post">
+<form action="{% url 'pizzas:comment' pizza.id %}" method="post">
 
     {% csrf_token %}
 
     {{ form.as_p }}
 
-    <button name="submit">Post comment</button>
+    <button name="submit">Add comment</button>
 </form>
 
 

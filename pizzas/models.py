@@ -21,14 +21,11 @@ class Topping(models.Model):
 
 
 class Comment(models.Model):
-    comment = models.ForeignKey(Pizza,on_delete=models.CASCADE,related_name='comments')
-    name = models.CharField(max_length=80)
-    body = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
-    
+    pizzacomment = models.ForeignKey(Pizza, on_delete=models.CASCADE)
+    comment = models.TextField()
 
     class Meta:
-        ordering = ['created_on']
+        verbose_name_plural = 'comments'
 
     def __str__(self):
-        return 'Comment {} by {}'.format(self.body, self.name)
+        return f"{self.topping_name[:50]}..."

@@ -19,4 +19,8 @@ class ToppingForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('name', 'body')
+        fields = ['comment']
+        labels = {'comment':''}
+
+        widgets = {'comment': forms.Textarea(attrs={'cols':80})}
+        
